@@ -1,0 +1,32 @@
+1. Ask the user for the TikTok video URL they want to download without a watermark.
+
+   url = get_user_input()
+
+2. Parse the URL to extract the video ID.
+
+   video_id = parse_video_id(url)
+
+3. Construct the download URL using the video ID.
+
+   download_url = construct_download_url(video_id)
+
+4. Send an HTTP GET request to the download URL.
+
+   response = send_http_get_request(download_url)
+
+5. If the response is successful, save the video file to the desired location on the user's device.
+
+   if response.status_code == 200:
+       video_file_path = save_video_file(response.content, "original.mp4")
+
+6. Remove the watermark from the video file using a watermark removal algorithm.
+
+   watermark_removed_file_path = remove_watermark(video_file_path)
+
+7. Save the new video file without the watermark to the desired location on the user's device.
+
+   save_video_file(watermark_removed_file_path, "no_watermark.mp4")
+
+8. Notify the user that the download is complete and provide them with the location of the downloaded file without a watermark.
+
+   show_download_complete_message(watermark_removed_file_path)
